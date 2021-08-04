@@ -1,13 +1,24 @@
-# -*- coding: utf-8 -*-
 
 import requests
 import pytest
+import allure
 
+@allure.feature("登录模块")
+class TestLogin():
 
+    @allure.story("这是一个故事")
+    @allure.title("这是一个标题1")
+    def test_1(self):
+        a = "hello"
+        assert a in "hello world"
 
-querystring = {"keuword":"聚合"}
-r = requests.get(url="http://v.juhe.cn/siteTools/app/BaiduKeyword/query.php",params=querystring)
-print(r.text)
-print(r.url)
-print(r.json()["reason"])#直接加中括号取值，找不到时抛异常
-print(r.json().get("reason3","没取到"))#调用get方法取值，找不到时返回设置的没取到
+    @allure.title("这是一个标题2")
+    @allure.testcase("这里是功能测试用例地址https://www.juhe.cn/box/index/id/479")
+    def test_2(self):
+        a = "hello"
+        assert a in "hi world"
+
+    @allure.title("这是一个标题3")
+    def test_3(self):
+        a = "hello"
+        assert a in "hello friends"
